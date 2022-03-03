@@ -73,5 +73,28 @@ public class OrdenacaoTeste {
         int[] retorno = Ordenacao.bubbleSort(vetor);
         assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
     }
+    
+    // INSERTION SORT
+    
+    @Test
+    public void testarNumerosIguaisInsertionSort() {
+        int[] vetor = {1, 1, 1, 1, 1};
+        int[] retorno = Ordenacao.insertionSort(vetor);
+        assertArrayEquals(vetor, retorno);
+    }
+
+    @Test
+    public void testarNumerosPositivosInsertionSort() {
+        int[] vetor = {7, 4, 8, 3, 9, 0, 2, 1, 5, 6};
+        int[] retorno = Ordenacao.insertionSort(vetor);
+        assertArrayEquals(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, retorno);
+    }
+
+    @Test
+    public void testarNumerosNegativosInsertionSort() {
+        int[] vetor = {-9, -1, -4, -3, -7};
+        int[] retorno = Ordenacao.insertionSort(vetor);
+        assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
+    }
 
 }
