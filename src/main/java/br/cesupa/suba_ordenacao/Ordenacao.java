@@ -20,7 +20,7 @@ public class Ordenacao {
     public static int[] bubbleSort(int[] vetor) {
         for (int anterior = 0; anterior < vetor.length; anterior++) {
             for (int posterior = anterior + 1; posterior < vetor.length; posterior++) {
-                if (vetor[posterior] > vetor[anterior]) {
+                if (vetor[anterior] > vetor[posterior]) {
                     int aux = vetor[posterior];
                     vetor[posterior] = vetor[anterior];
                     vetor[anterior] = aux;
@@ -29,4 +29,18 @@ public class Ordenacao {
         } // fim do for externo
         return vetor;
     } // fim do método bubbleSort
+    
+    public static int[] insertionSort(int[] vetor) {
+        for (int i = 0; i < vetor.length; i++) {
+            int chave = vetor[i];
+            int j = i  - 1;
+            while (j >= 0 && vetor[j] > chave) {
+                vetor[j+1] = vetor[j];
+                j--;
+            } // fim do while
+            vetor[j+1] = chave;
+        } // fim do for
+        return vetor;
+    } // fim do método insertionSort
+    
 }

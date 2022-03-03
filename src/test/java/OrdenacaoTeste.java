@@ -28,6 +28,8 @@ public class OrdenacaoTeste {
     public void tearDown() {
     }
 
+    // SELECTION SORT
+    
     @Test
     public void testarNumerosIguaisSelectionSort() {
         int[] vetor = {1, 1, 1, 1, 1};
@@ -46,6 +48,29 @@ public class OrdenacaoTeste {
     public void testarNumerosNegativosSelectionSort() {
         int[] vetor = {-9, -1, -4, -3, -7};
         int[] retorno = Ordenacao.selectionSort(vetor);
+        assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
+    }
+    
+    // BUBBLE SORT
+    
+    @Test
+    public void testarNumerosIguaisBubbleSort() {
+        int[] vetor = {1, 1, 1, 1, 1};
+        int[] retorno = Ordenacao.bubbleSort(vetor);
+        assertArrayEquals(vetor, retorno);
+    }
+
+    @Test
+    public void testarNumerosPositivosBubbleSort() {
+        int[] vetor = {7, 4, 8, 3, 9, 0, 2, 1, 5, 6};
+        int[] retorno = Ordenacao.bubbleSort(vetor);
+        assertArrayEquals(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, retorno);
+    }
+
+    @Test
+    public void testarNumerosNegativosBubbleSort() {
+        int[] vetor = {-9, -1, -4, -3, -7};
+        int[] retorno = Ordenacao.bubbleSort(vetor);
         assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
     }
 
