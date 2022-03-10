@@ -43,4 +43,33 @@ public class Ordenacao {
         return vetor;
     } // fim do método insertionSort
     
+    public static int[] mergeSort(int[] vetor, int tamanho) {
+        if (tamanho < 2) return null;
+        int meio = tamanho / 2;
+        int[] vesq = new int[meio];
+        int[] vdir = new int[tamanho-meio];
+        for(int i = 0; i < meio; i++)
+            vesq[i] = vetor[i];
+        for(int i = meio; i < tamanho; i++)
+            vdir[i-meio] = vetor[i];
+        mergeSort(vesq, meio);
+        mergeSort(vdir, tamanho-meio);
+        merge(vetor, vesq, vdir, meio, tamanho-meio);
+        return vetor;
+    } // fim do método mergeSort
+
+    private static void merge(int[] vetor, int[] vesq, int[] vdir, int esq, int dir) {
+        int i = 0, j = 0, k = 0;
+        while (i < esq && j < dir) {
+            if (vesq[i] <= vdir[j])
+                vetor[k++] = vesq[i++];
+            else
+                vetor[k++] = vdir[j++];
+        } // fim while
+        while (i < esq)
+            vetor[k++] = vesq[i++];
+        while (j < dir)
+            vetor[k++] = vdir[j++];
+    } // fim do merge
+    
 }

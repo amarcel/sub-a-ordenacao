@@ -96,5 +96,28 @@ public class OrdenacaoTeste {
         int[] retorno = Ordenacao.insertionSort(vetor);
         assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
     }
+    
+    // MERGE SORT
+    
+    @Test
+    public void testarNumerosIguaisMergeSort() {
+        int[] vetor = {1, 1, 1, 1, 1};
+        int[] retorno = Ordenacao.mergeSort(vetor, vetor.length);
+        assertArrayEquals(vetor, retorno);
+    }
+
+    @Test
+    public void testarNumerosPositivosMergeSort() {
+        int[] vetor = {7, 4, 8, 3, 9, 0, 2, 1, 5, 6};
+        int[] retorno = Ordenacao.mergeSort(vetor, vetor.length);
+        assertArrayEquals(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, retorno);
+    }
+
+    @Test
+    public void testarNumerosNegativosMergeSort() {
+        int[] vetor = {-9, -1, -4, -3, -7};
+        int[] retorno = Ordenacao.mergeSort(vetor, vetor.length);
+        assertArrayEquals(new int[] {-9, -7, -4, -3, -1}, retorno);
+    }
 
 }
