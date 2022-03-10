@@ -72,4 +72,30 @@ public class Ordenacao {
             vetor[k++] = vdir[j++];
     } // fim do merge
     
+    public static int[] quickSort(int[] vetor, int inicio, int fim) {
+        if (inicio < fim) {
+            int posicaoPivo = separar(vetor, inicio, fim);
+            quickSort(vetor, inicio, posicaoPivo-1);
+            quickSort(vetor, posicaoPivo+1, fim);
+        }
+        return vetor;
+    }
+
+    private static int separar(int[] vetor, int inicio, int fim) {
+        int pivo = vetor[inicio];
+        int i = inicio+1, f = fim;
+        while (i <= f) {
+            if (vetor[i] <= pivo) i++;
+            else if (pivo < vetor[f]) f--;
+            else {
+                int aux = vetor[i];
+                vetor[i] = vetor[f];
+                vetor[f] = aux;
+                i++; f--;
+            } // fim do if-else
+        } // fim do while
+        vetor[inicio] = vetor[f]; vetor[f] = pivo;
+        return f;
+    } // fim do separar
+    
 }
