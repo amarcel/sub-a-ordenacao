@@ -98,4 +98,22 @@ public class Ordenacao {
         return f;
     } // fim do separar
     
+     public static int[] shellSort(int[] vet){
+        int i, j, temp, tamanho = vet.length;
+        int k = tamanho / 2;
+        while(k>=1){
+            for(i = k;i < tamanho;i++){
+                temp = vet[i];
+                j = i - k;
+                while (j >= 0 && temp < vet[j]){
+                    vet[j + k] = vet[j];
+                    j -= k;
+                }
+                vet[j + k] = temp;
+            }
+            k--;
+
+        }
+        return vet;
+    }
 }
